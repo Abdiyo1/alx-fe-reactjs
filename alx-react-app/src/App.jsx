@@ -36,7 +36,7 @@ function App(){
       </p>
       <Header />
       <MainContent />
-      <Footer/>
+      <Footer />
     </>
   )
 }
