@@ -31,17 +31,17 @@ const RegistrationFormFormik = () => {
         <div>
           <label>Username:</label>
           <Field type="text" name="username" />
-          <ErrorMessage name="username" component="p" style={{ color: "red" }} />
+          <ErrorMessage name="username" component="p"  />
         </div>
         <div>
           <label>Email:</label>
           <Field type="email" name="email" />
-          <ErrorMessage name="email" component="p" style={{ color: "red" }} />
+          <ErrorMessage name="email" component="p"  />
         </div>
         <div>
           <label>Password:</label>
           <Field type="password" name="password" />
-          <ErrorMessage name="password" component="p" style={{ color: "red" }} />
+          <ErrorMessage name="password" component="p"  />
         </div>
         <button type="submit">Register</button>
       </Form>
