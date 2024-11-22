@@ -5,25 +5,25 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [error, setError] = useState("");
+  const [error, setErrors] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Basic validation
     if (!username ) {
-      setError("username required.");
+      setErrors("username required.");
       return;
     }
     if (!email ) {
-      setError("Email are required.");
+      setErrors("Email are required.");
       return;
     }
     if (!password ) {
-      setError("Password required.");
+      setErrors("Password required.");
       return;
     }
-    setError("");
+    setErrors("");
     console.log("Form Submitted", { username, email, password });
 
     // Simulate API call
