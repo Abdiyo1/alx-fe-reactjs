@@ -26,7 +26,7 @@ const RegistrationFormFormik = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
+     {()=> <Form>
         <h2>User Registration with Formik</h2>
         <div>
           <label>Username:</label>
@@ -44,7 +44,7 @@ const RegistrationFormFormik = () => {
           <ErrorMessage name="password" component="p"  />
         </div>
         <button type="submit">Register</button>
-      </Form>
+      </Form>}
     </Formik>
   );
 };
