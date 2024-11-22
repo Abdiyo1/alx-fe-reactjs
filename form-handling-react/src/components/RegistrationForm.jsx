@@ -11,15 +11,15 @@ const RegistrationForm = () => {
     e.preventDefault();
 
     // Basic validation
-    if (!username ) {
+    if (!username) {
       setErrors("username required.");
       return;
-    }
-    if (!email ) {
+    };
+    if (!email) {
       setErrors("Email are required.");
       return;
-    }
-    if (!password ) {
+    };
+    if (!password) {
       setErrors("Password required.");
       return;
     }
