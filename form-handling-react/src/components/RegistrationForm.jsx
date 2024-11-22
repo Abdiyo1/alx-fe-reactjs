@@ -12,15 +12,15 @@ const RegistrationForm = () => {
 
     // Basic validation
     if (!username ) {
-      setError("All fields are required.");
+      setError("username required.");
       return;
     }
     if (!email ) {
-      setError("All fields are required.");
+      setError("Email are required.");
       return;
     }
     if (!password ) {
-      setError("All fields are required.");
+      setError("Password required.");
       return;
     }
     setError("");
