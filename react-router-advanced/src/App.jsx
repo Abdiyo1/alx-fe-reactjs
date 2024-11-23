@@ -48,13 +48,13 @@ function App() {
          <Link to="/"> Home </Link>
          <Link to="login"> Login </Link>
          <Link to="profile"> profile </Link>
-         <Link to="blog/:postId">blog</Link>      
+         <Link to="blog/:id">blog</Link>      
        </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/profile/*" element={<Profile />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/blog/:postId" element={<BlogPost />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
                 <Route path="/profile/*"
                           element={
                           <ProtectedRoute isAuthenticated={isAuthenticated}>
