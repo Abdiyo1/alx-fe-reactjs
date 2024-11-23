@@ -38,7 +38,7 @@ import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import Login from "./pages/Login";
 import BlogPost from "./pages/BlogPost";
-import ProtectedRoute from "./pages/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const isAuthenticated = true; // Simulated login status
