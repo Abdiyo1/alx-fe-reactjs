@@ -6,23 +6,28 @@ const AddRecipeForm = () => {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Simple Validation
+  // Validation Function
+  const validate = () => {
     const validationErrors = {};
     if (!title.trim()) validationErrors.title = "Title is required.";
     if (!ingredients.trim() || ingredients.split("\n").length < 2) {
       validationErrors.ingredients = "Please include at least two ingredients.";
     }
     if (!steps.trim()) validationErrors.steps = "Preparation steps are required.";
+    return validationErrors;
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Run validation and update errors state
+    const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    // Clear the form and log the data
+    // If validation passes, clear the form and log the data
     console.log({
       title,
       ingredients: ingredients.split("\n"),
@@ -42,6 +47,7 @@ const AddRecipeForm = () => {
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg p-6 max-w-xl mx-auto"
       >
+        {/* Recipe Title */}
         <div className="mb-4">
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
             Recipe Title
@@ -60,6 +66,7 @@ const AddRecipeForm = () => {
           )}
         </div>
 
+        {/* Ingredients */}
         <div className="mb-4">
           <label
             htmlFor="ingredients"
@@ -81,11 +88,9 @@ const AddRecipeForm = () => {
           )}
         </div>
 
+        {/* Preparation Steps */}
         <div className="mb-4">
-          <label
-            htmlFor="steps"
-            className="block text-gray-700 font-bold mb-2"
-          >
+          <label htmlFor="steps" className="block text-gray-700 font-bold mb-2">
             Preparation Steps
           </label>
           <textarea
@@ -102,6 +107,7 @@ const AddRecipeForm = () => {
           )}
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
