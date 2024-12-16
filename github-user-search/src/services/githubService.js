@@ -1,14 +1,21 @@
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: "https://api.github.com",
 });
 
-export const fetchUserData = async (username) => {
+export const fetchUserData = async ({ username, location, repos }) => {
   try {
-    const response = await api.get(`/users/${username}`);
-    return response.data;
+    let query = "";
+
+    if (username) query += `${username} in:login `;
+    if (location) query += `location:${location} `;
+    if (repos) query += `repos:>${repos}`;
+
+    const response = await api.get(`/search/users?q=${query.trim()}`);
+    return response.data; // The API returns an `items` array
   } catch (error) {
-    throw new Error('User not found');
+    throw new Error("Error fetching advanced search results");
   }
 };
+
