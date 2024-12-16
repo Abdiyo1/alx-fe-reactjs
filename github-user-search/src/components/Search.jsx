@@ -21,7 +21,7 @@ const Search = () => {
         location: location.trim(),
         repos: minRepos.trim(),
       };
-      const data = await fetchAdvancedSearchResults(query);
+      const data = await fetchUserData(query);
       setResults(data.items); // GitHub API returns results in `items`
     } catch (err) {
       setError("Failed to fetch search results. Please try again.");

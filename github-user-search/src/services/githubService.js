@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "https://api.github.com/search/users?q={query}",
 });
 
-export const fetchAdvancedSearchResults = async ({ username, location, repos }) => {
+export const fetchUserData = async ({ username, location, repos }) => {
   try {
     let query = "";
 
