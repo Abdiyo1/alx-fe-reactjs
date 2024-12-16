@@ -1,15 +1,14 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_GITHUB_API_BASE_URL,
+  baseURL: 'https://api.github.com',
 });
 
-export const searchGitHubUsers = async (username) => {
+export const fetchUserData = async (username) => {
   try {
-    const response = await api.get(`/search/users?q=${username}`);
+    const response = await api.get(`/users/${username}`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching GitHub users:", error);
-    throw error;
+    throw new Error('User not found');
   }
 };
