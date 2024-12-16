@@ -4,13 +4,13 @@ const api = axios.create({
   baseURL: "https://api.github.com/search/users?q={query}",
 });
 
-export const fetchUserData = async ({ username, location, repos }) => {
+export const fetchAdvancedSearchResults = async ({ username, location, repos }) => {
   try {
     let query = "";
 
     if (username) query += `${username} in:login `;
     if (location) query += `location:${location} `;
-    if (repos) query += `repos:>${repos}`;
+    if (repos) query += `repos:>${repos}`; // Add minRepos to filter by repository count
 
     const response = await api.get(`/search/users?q=${query.trim()}`);
     return response.data; // The API returns an `items` array
@@ -18,4 +18,3 @@ export const fetchUserData = async ({ username, location, repos }) => {
     throw new Error("Error fetching advanced search results");
   }
 };
-
